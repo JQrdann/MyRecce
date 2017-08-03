@@ -146,7 +146,10 @@
     </section>
 
     <section class='create-section'>
-      <h1>Section 4</h1>
+        <div class='input-wrapper'>
+          <label for='features'>Location Features</label>
+          <input name='features' class="create-checkbox" type='checkbox' value='wifi'></input>
+        </div>
     </section>
 
     <section class='create-section last'>
