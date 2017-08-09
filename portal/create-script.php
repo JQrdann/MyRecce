@@ -4,7 +4,7 @@
         session_start();
 
         $name = htmlentities($_POST['name']);
-        $association = htmlentities($_POST['association']);
+        $association = htmlentities($_POST['owner-asso']);
         $description = htmlentities($_POST['description']);
         $type = htmlentities($_POST['type']);
         $address_line1 = htmlentities($_POST['address-line1']);
@@ -15,10 +15,19 @@
         $country = htmlentities($_POST['country']);
         $pics = array('pic1','pic2','pic3','pic4','pic5','pic6');
         $features = $_POST['features'];
-        $features = implode(",", $features);
+        //$features = implode(",", $features);
         $price = htmlentities($_POST['price']);
-        $extras = $_POST['extras'];
-        $extras = implode(", ", $extras);
+
+
+
+
+        //Add this back in
+        //$extras = $_POST['extras'];
+        //$extras = implode(", ", $extras);
+
+
+
+
         $submitter = $_SESSION['username'];
         $owner = htmlentities($_POST['owner-name']);
 
@@ -46,7 +55,7 @@
         }
 
         if($valid){
-            $db_query = "INSERT INTO `recces` (`Name`, `Association`, `Description`, `Type`, `AddressLine1`, `AddressLine2`, `City`, `State/County`, `Postcode`, `Country`, `Photo1`, `Photo2`, `Photo3`, `Photo4`, `Photo5`, `Photo6`, `Location Features`, `Price`, `Extras`, `Submitter`, `Owner`) VALUES ('$name', '$association', '$description', '$type', '$address_line1', '$address_line2', '$city', '$region', '$postcode', '$country', '$pics[0]', '$pics[1]', '$pics[2]', '$pics[3]', '$pics[4]', '$pics[5]', '$features', '$price', '$extras', '$submitter', '$owner')";
+            $db_query = "INSERT INTO `recces` (`Name`, `Association`, `Description`, `Type`, `AddressLine1`, `AddressLine2`, `City`, `County`, `Postcode`, `Country`, `Photo1`, `Photo2`, `Photo3`, `Photo4`, `Photo5`, `Photo6`, `Location Features`, `Price`, `Extras`, `Submitter`, `Owner`) VALUES ('$name', '$association', '$description', '$type', '$address_line1', '$address_line2', '$city', '$region', '$postcode', '$country', '$pics[0]', '$pics[1]', '$pics[2]', '$pics[3]', '$pics[4]', '$pics[5]', '$features', '$price', 'test', '$submitter', '$owner')";
 
             if ($conn->query($db_query)) {
                 header('Location: myaccount.php');

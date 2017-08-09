@@ -1,13 +1,11 @@
 $(document).ready(function(){
 
   $('.custom-file-upload').click(function(){
-
     if($(this).attr('data-hasimg') == 'true'){
       $(this).next().addClass('view-change');
     }else{
       $(this).prev().click();
     }
-
   });
 
   $('.custom-img-change').click(function(){
@@ -26,8 +24,7 @@ $(document).ready(function(){
     e.unwrap();
   }
 
-  function readURL(input, picID) {
-
+  function readURL(input, picID){
       if (input.files && input.files[0]) {
           var reader = new FileReader();
 
@@ -115,6 +112,11 @@ $(document).ready(function(){
 
       if($('.create-active-section').next().hasClass('last')){
         $('#create-next').fadeOut(300);
+        $('#create-publish').addClass('publish');
+
+        $('.publish').click(function(){
+          $('#create-form').submit();
+        });
       }
 
       setTimeout(checkFormValid(), 500);
@@ -130,6 +132,7 @@ $(document).ready(function(){
       }, 300); //stop rapid next clicking
 
       $('#create-next').fadeIn(300);
+      $('#create-publish').removeClass('publish');
 
       $('.create-active-section').prev().animate({
         'left':20,
