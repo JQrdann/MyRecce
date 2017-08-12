@@ -1721,7 +1721,7 @@ input[type=locationprice2]:focus {
   float: left;
   margin-left: 25px;
   margin-top: 20px;
-  width: 600px;
+  width: 900px;
   height: calc(100vh - 80px);
   border-radius: 1em;
   padding: 20px;
@@ -1960,4 +1960,49 @@ input[type="radio"] {
   font-size: 1.5em;
 }
 
+#features-list{
+  list-style: none;
+  width: 900px;
+  border-radius: .5em;
+  padding: 0;
+}
+
+.feature{
+  width: 128px;
+  height: 152px;
+  display: inline-block;
+  border: 2px solid black;
+  border-radius: .5em;
+  padding: 25px;
+  margin: 5px;
+  transition: .3s;
+}
+
+#features-list p{
+  width: 128px;
+  text-align: center;
+}
+
+#features-list .selected{
+  fill: #2ecc71 !important;
+  /*border: 3px solid #2ecc71;*/
+  border-radius: .5em;
+}
+
+#features-list input{
+  opacity: 0;
+  visibility: hidden;
+  height: 1px;
+  width: 1px;
+}
+
+#features-list svg{
+  cursor: pointer;
+  transition: .3s;
+  border: 3px solid white;
+}
+
+.selected-feature{
+  border: 2px solid #2ecc71;
+}
 /* ------- end of create page -------- */

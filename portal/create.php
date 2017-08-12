@@ -147,10 +147,59 @@
     </section>
 
     <section class='create-section'>
-        <div class='input-wrapper'>
-          <label for='features'>Location Features</label>
-          <input name='features' class="create-checkbox" type='checkbox' value='wifi'> WiFi</input>
-        </div>
+      <label>Features</label>
+          <div id='features-list'>
+            <div class='feature'>
+              <?php echo file_get_contents('icons/cateringservices.svg') ?>
+              <input name='features' type='checkbox'></input>
+              <p>Catering Services</p>
+            </div>
+            <div class='feature'>
+              <?php echo file_get_contents('icons/disabledaccess.svg') ?>
+              <input name='features' type='checkbox'></input>
+              <p>Disabled Access</p>
+            </div>
+            <div class='feature'>
+              <?php echo file_get_contents('icons/firstaid.svg') ?>
+              <input name='features' type='checkbox'></input>
+              <p>Firstaid</p>
+            </div>
+            <div class='feature'>
+              <?php echo file_get_contents('icons/floorplan.svg') ?>
+              <input name='features' type='checkbox'></input>
+              <p>Floor Plan</p>
+            </div>
+            <div class='feature'>
+              <?php echo file_get_contents('icons/lighting.svg') ?>
+              <input name='features' type='checkbox'></input>
+              <p>Lighting<p>
+            </div>
+            <div class='feature'>
+              <?php echo file_get_contents('icons/parking.svg') ?>
+              <input name='features' type='checkbox'></input>
+              <p>Parking</p>
+            </div>
+            <div class='feature'>
+              <?php echo file_get_contents('icons/poweroutlets.svg') ?>
+              <input name='features' type='checkbox'></input>
+              <p>Power Outlets</p>
+            </div>
+            <div class='feature'>
+              <?php echo file_get_contents('icons/soundissues.svg') ?>
+              <input name='features' type='checkbox'></input>
+              <p>Sound Issues</p>
+            </div>
+            <div class='feature'>
+              <?php echo file_get_contents('icons/toilets.svg') ?>
+              <input name='features' type='checkbox'></input>
+              <p>Toilets</p>
+            </div>
+            <div class='feature'>
+              <?php echo file_get_contents('icons/wifi.svg') ?>
+              <input name='features' type='checkbox'></input>
+              <p>WiFi</p>
+            </div>
+          </div>
     </section>
 
     <section class='create-section'>

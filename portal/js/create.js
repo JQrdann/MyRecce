@@ -65,7 +65,7 @@ $(document).ready(function(){
     checkFormValid();
   });
 
-  var right = 800;
+  var right = 1100;
 
   $('.create-section').each(function(){
     $(this).css({
@@ -88,7 +88,7 @@ $(document).ready(function(){
       }, 300); //stop rapid next clicking
 
       $('.create-active-section').eq(0).css('position', 'absolute').animate({
-        'left':'-700'
+        'left':-right-300
       },375, function(){
         $(this).removeClass('create-active-section');
       });
@@ -163,5 +163,11 @@ $(document).ready(function(){
 
       $('#create-next').addClass('create-enabled');
     }
+  });
+
+  $('.feature').click(function(){
+    $('svg', this).toggleClass('selected');
+    $('input', this).prop("checked", !$('input', this).prop("checked"));
+    $(this).toggleClass('selected-feature')
   });
 });
