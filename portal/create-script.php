@@ -15,10 +15,8 @@
         $country = htmlentities($_POST['country']);
         $pics = array('pic1','pic2','pic3','pic4','pic5','pic6');
         $features = $_POST['features'];
-        //$features = implode(",", $features);
+        $features = implode(",", $features);
         $price = htmlentities($_POST['price']);
-
-
 
 
         //Add this back in

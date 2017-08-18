@@ -2005,4 +2005,82 @@ input[type="radio"] {
 .selected-feature{
   border: 2px solid #2ecc71;
 }
-/* ------- end of create page -------- */
+/* ------- End of create page -------- */
+
+
+/* ------- View recce page ------- */
+
+#view-header{
+  position: relative;
+  width: 100%;
+  height: 250px;
+}
+
+#view-banner{
+  width: 100%;
+  position: absolute;
+  bottom: -75px;
+  height: 150px;
+}
+
+#recce-title{
+  position: absolute;
+  width: 100%;
+  height: 40px;
+  margin-top: 50px;
+  float: left;
+  color: white;
+  line-height: 40px;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-size: 1em;
+  background-color: #2ecc71;
+  border-left: 0;
+}
+
+#recce-title h1{
+  font-weight: 300 !important;
+}
+
+#view-profile{
+  position: absolute;
+  right: 0;
+  height: 100%;
+  width: 20%;
+  z-index: 1;
+}
+
+#profile-picture{
+  border-radius: 5em;
+  /*background-color: white;*/
+  border: 4px solid white;
+  height: 142px;
+  width: 142px;
+  background-image: url('../icons/profile.svg');
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+#view-map{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+#view-map iframe{
+  width: 100%;
+  height: 100%;
+}
+
+a[href^="http://maps.google.com/maps"]{display:none !important}
+a[href^="https://maps.google.com/maps"]{display:none !important}
+
+.gmnoprint a, .gmnoprint span, .gm-style-cc {
+    display:none;
+}
+.gmnoprint div {
+    background:none !important;
+}
+/* ------- End of view recce page ------- */

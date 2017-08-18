@@ -151,52 +151,52 @@
           <div id='features-list'>
             <div class='feature'>
               <?php echo file_get_contents('icons/cateringservices.svg') ?>
-              <input name='features' type='checkbox'></input>
+              <input name='features[]' type='checkbox' value='Catering Services'></input>
               <p>Catering Services</p>
             </div>
             <div class='feature'>
               <?php echo file_get_contents('icons/disabledaccess.svg') ?>
-              <input name='features' type='checkbox'></input>
+              <input name='features[]' type='checkbox' value='Disabled Access'></input>
               <p>Disabled Access</p>
             </div>
             <div class='feature'>
               <?php echo file_get_contents('icons/firstaid.svg') ?>
-              <input name='features' type='checkbox'></input>
+              <input name='features[]' type='checkbox' value='First aid'></input>
               <p>Firstaid</p>
             </div>
             <div class='feature'>
               <?php echo file_get_contents('icons/floorplan.svg') ?>
-              <input name='features' type='checkbox'></input>
+              <input name='features[]' type='checkbox' value='Floor plan'></input>
               <p>Floor Plan</p>
             </div>
             <div class='feature'>
               <?php echo file_get_contents('icons/lighting.svg') ?>
-              <input name='features' type='checkbox'></input>
+              <input name='features[]' type='checkbox' value='Lighting'></input>
               <p>Lighting<p>
             </div>
             <div class='feature'>
               <?php echo file_get_contents('icons/parking.svg') ?>
-              <input name='features' type='checkbox'></input>
+              <input name='features[]' type='checkbox' value='Parking'></input>
               <p>Parking</p>
             </div>
             <div class='feature'>
               <?php echo file_get_contents('icons/poweroutlets.svg') ?>
-              <input name='features' type='checkbox'></input>
+              <input name='features[]' type='checkbox' value='Power Outlets'></input>
               <p>Power Outlets</p>
             </div>
             <div class='feature'>
               <?php echo file_get_contents('icons/soundissues.svg') ?>
-              <input name='features' type='checkbox'></input>
+              <input name='features[]' type='checkbox' value='Sound Issues'></input>
               <p>Sound Issues</p>
             </div>
             <div class='feature'>
               <?php echo file_get_contents('icons/toilets.svg') ?>
-              <input name='features' type='checkbox'></input>
+              <input name='features[]' type='checkbox' value='Toilets'></input>
               <p>Toilets</p>
             </div>
             <div class='feature'>
               <?php echo file_get_contents('icons/wifi.svg') ?>
-              <input name='features' type='checkbox'></input>
+              <input name='features[]' type='checkbox' value='Wifi'></input>
               <p>WiFi</p>
             </div>
           </div>
@@ -498,7 +498,7 @@
     <section class='create-section last'>
       <div class='input-wrapper'>
         <label for='price'>Price</label>
-        <input name='price' class="create-input" type="number" required>
+        <input name='price' class="create-input" type="number" required min="0" step="0.01" max="2500">
       </div>
     </section>
 
