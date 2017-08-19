@@ -128,6 +128,22 @@ function setFavourites(){
   });
 }
 
+function getSingleRecce(){
+  $.ajax({
+    url: 'search-script.php',
+    data: {action: 'single', id: $('#image-carosel').attr('data-id')},
+    type: 'post',
+    success : function(data){
+      if(data == '[]'){
+        alert('redirect to 404');
+      }
+      console.log(data);
+      $obj = JSON.parse(data); //automatically appends to current json object
+      fillSingleRecce($obj);
+    }
+  });
+}
+
 function userRecces(){
   $.ajax({
     url: 'search-script.php',
@@ -290,11 +306,72 @@ function search(count) {
       data: {action: 'search', count: count, title: title},
       type: 'post',
       success : function(data){
+
         console.log(data);
         $obj = JSON.parse(data); //automatically appends to current json object
         showItems($obj);
       }
     });
+}
+
+function fillSingleRecce(recce){
+  var r = recce[0];
+  $('#view-title').html(r.Name);
+  $('#view-desc p').html(r.Description);
+
+  $('.view-image').eq(0).css('background-image', 'url("'+ r.Photo1 +'")');
+  $('.view-image').eq(1).css('background-image', 'url("'+ r.Photo2 +'")');
+  $('.view-image').eq(2).css('background-image', 'url("'+ r.Photo3 +'")');
+  $('.view-image').eq(3).css('background-image', 'url("'+ r.Photo4 +'")');
+  $('.view-image').eq(4).css('background-image', 'url("'+ r.Photo5 +'")');
+  $('.view-image').eq(5).css('background-image', 'url("'+ r.Photo6 +'")');
+
+  var features = r.Features.split(',');
+
+  for(var i = 0; i < features.length; i++){
+    switch(features[i]){
+      case "Catering Services":
+        $('#view-features').append('<div class="view-feature"><img src="icons/cateringservices.svg"><p>Catering Services</p></div>');
+        break;
+      case "Disabled Access":
+        $('#view-features').append('<div class="view-feature"><img src="icons/disabledaccess.svg"><p>Disabled Access</p></div>');
+        break;
+      case "First Aid":
+        $('#view-features').append('<div class="view-feature"><img src="icons/firstaid.svg"><p>First Aid</p></div>');
+        break;
+      case "Floor plan":
+        $('#view-features').append('<div class="view-feature"><img src="icons/floorplan.svg"><p>Floor Plan</p></div>');
+        break;
+      case "Lighting":
+        $('#view-features').append('<div class="view-feature"><img src="icons/lighting.svg"><p>Lighting</p></div>');
+        break;
+      case "Parking":
+        $('#view-features').append('<div class="view-feature"><img src="icons/parking.svg"><p>Parking</p></div>');
+        break;
+      case "Power Outlets":
+        $('#view-features').append('<div class="view-feature"><img src="icons/poweroutlets.svg"><p>Power Outlets</p></div>');
+        break;
+      case "Sound Issues":
+        $('#view-features').append('<div class="view-feature"><img src="icons/soundissues.svg"><p>Sound Issues</p></div>');
+        break;
+      case "Toilets":
+        $('#view-features').append('<div class="view-feature"><img src="icons/toilets.svg"><p>Toilets</p></div>');
+        break;
+      case "Wifi":
+        $('#view-features').append('<div class="view-feature"><img src="icons/wifi.svg"><p>Wifi</p></div>');
+        break;
+    }
+  }
+
+  $('.username').html(r.Submitter);
+  $('#user-contact').append('<p>'+ r.AddressLine1 +'</p>');
+  $('#user-contact').append('<p>'+ r.AddressLine2 +'</p>');
+  $('#user-contact').append('<p>'+ r.City +'</p>');
+  $('#user-contact').append('<p>'+ r.County +'</p>');
+  $('#user-contact').append('<p>'+ r.Postcode.toUpperCase() +'</p>');
+  $('#user-contact').append('<p>'+ r.Country +'</p>');
+
+  //$('#view-features').html(r.Features);
 }
 
 function showItems(items) {
@@ -441,6 +518,11 @@ function initMap() {
             recceQuickViewSearch($(this).attr('data-id'));
         })
     }
+
+    $('#mobile').click(function(){
+      $(this).toggleClass('mobile-open');
+      $('#mobile-nav').toggleClass('mobile-nav-open');
+    });
 }
 
 //if at bottom of page

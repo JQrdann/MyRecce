@@ -20,32 +20,35 @@
     </div>
   </div>-->
 
-  <div id='image-carosel'>
-    <div class='view-image' style='background-image: url("users/Username/uploads/bar_zoom.jpg")'></div>
-    <div class='view-image' style='background-image: url("users/Username/uploads/Cafe_800.jpg")'></div>
-    <div class='view-image' style='background-image: url("users/Username/uploads/Eat.jpg")'></div>
-    <div class='view-image' style='background-image: url("users/Username/uploads/bar_zoom.jpg")'></div>
-    <div class='view-image' style='background-image: url("users/Username/uploads/Cafe_800.jpg")'></div>
-    <div class='view-image' style='background-image: url("users/Username/uploads/Eat.jpg")'></div>
+  <div id='image-carosel' data-id='<?php echo $_GET["id"]?>'>
+    <div class='view-image'></div>
+    <div class='view-image'></div>
+    <div class='view-image'></div>
+    <div class='view-image'></div>
+    <div class='view-image'></div>
+    <div class='view-image'></div>
   </div>
 
   <div id='view-details'>
     <div id='view-desc'>
-
+      <h2 id='view-title'></h2>
+      <p></p>
     </div>
     <div id='view-features'>
-
+      <h2 id='view-title' style='padding-left: 20px; padding-top: 20px;'>Features</h2>
     </div>
   </div>
 
   <div id='user-info'>
     <div id='user-details'>
-      <div id='user-profile'>
-
+      <div id='user-profile'></div>
+      <h2 class='username'></h2>
+      <div id='view-profile'>
+        View Profile
       </div>
     </div>
     <div id='user-contact'>
-
+      <h2>Address</h2><br>
     </div>
   </div>
 
@@ -53,6 +56,10 @@
 
 <script src='js/view.js'></script>
 <script>
+  $(document).ready(function(){
+    getSingleRecce();
+  });
+
   /*function initMap() {
     var map = new google.maps.Map(document.getElementById('view-map'), {
       zoom: 9,

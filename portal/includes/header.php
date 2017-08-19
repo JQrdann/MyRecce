@@ -54,6 +54,21 @@
         <div class="sidebar-overlay"></div>
     </aside>
 
+    <div id='mobile'>
+      <?php echo file_get_contents('icons/mobile.svg') ?>
+    </div>
+
+    <div id='mobile-nav'>
+      <ul>
+        <li><a href='home'>HOME</li></a> <!-- For both account types -->
+        <li><a href='search'>SEARCH</li></a> <!-- Undecided (maybe just for 'Filmmaker' account type) -->
+        <li><a href='myrecces'>MY RECCES</li></a> <!-- For 'Location Provider' account type -->
+        <li><a href='favourites'>FAVOURITES</li></a> <!-- For 'Filmmaker' account type -->
+        <li><a href='myaccount'>MY ACCOUNT</li></a> <!-- For both account types -->
+        <li><a href='admin'>ADMIN</li></a> <!-- For admin account types -->
+      </ul>
+    </div>
+
     <div id='time-overlay'>
       <h1><?php echo date('H:i') ?></h1>
       <h2><?php echo date('d-m-Y') ?></h2>

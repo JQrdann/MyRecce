@@ -12,7 +12,18 @@
       case 'search' : search($conn);break;
       case 'favourites' : favourites($conn);break;
       case 'users' : users($conn);break;
-      case 'delete' : delete($conn);break;
+      case 'delete' : deleteRecce($conn);break;
+      case 'single' : single($conn);break;
+    }
+
+    function single($conn){
+      $id = $_POST['id'];
+
+      $query =  "SELECT * FROM recces WHERE `id` = '$id'";
+
+      $result = $conn->query($query);
+
+      returnData($result);
     }
 
     function users($conn){
