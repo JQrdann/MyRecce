@@ -1,3 +1,5 @@
+var canDrag = false;
+
 $(document).ready(function() {
 
     $(".home-content").css("opacity", 0);
@@ -126,6 +128,19 @@ function setFavourites(){
   });
 }
 
+function userRecces(){
+  $.ajax({
+    url: 'search-script.php',
+    data: {action: 'users'},
+    type: 'post',
+    success : function(data){
+      console.log(data);
+      $obj = JSON.parse(data); //automatically appends to current json object
+      showItems($obj);
+    }
+  });
+}
+
 function fillFavourites(){
   $.ajax({
     url: 'search-script.php',
@@ -162,6 +177,75 @@ function recceListeners(){
           return;
       }
   });
+
+  if(canDrag){
+    var recceClick = false;
+    var recce, canDelete = false;
+
+    $('.recce').mousedown(function(e){
+      recceClick = true;
+      recce = $(this).clone();
+      $(this).addClass('selected-recce');
+      $(this).after(recce);
+      recce.css({
+        'position': 'fixed',
+        'top': e.pageY - recce.height()/2,
+        'left': e.pageX - recce.width()/2,
+        'z-index': 999
+      });
+
+      $('#delete-recce').animate({
+        height:75
+      }, 300);
+    });
+
+    $('body').mousemove(function(e){
+      if(recceClick){
+        recce.css('top', e.pageY - recce.height()/2);
+        recce.css('left', e.pageX - recce.width()/2);
+
+        if(e.pageY > $(document).height() - 75){
+          canDelete = true;
+        }
+      }
+    });
+
+    $('body').mouseup(function(){
+      if(recceClick){
+        recce.remove();
+        recceClick = false;
+
+        if(canDelete){
+          deleteRecce(recce);
+        }else{
+          $('.selected-recce').removeClass('selected-recce');
+        }
+      }
+      $('#delete-recce').stop().animate({
+        height:0
+      }, 300);
+      canDelete = false;
+    });
+  }
+}
+
+function deleteRecce(e){
+
+  $('#delete-modal').fadeIn(300);
+  $('#modal-fader').fadeIn(300);
+
+  $('#delete-no, #modal-fader').click(function(){
+    $('#delete-modal').fadeOut(300);
+    $('#modal-fader').fadeOut(300);
+  });
+
+  $('#delete-yes').click(function(){
+    $('.selected-recce').remove();
+    $('#delete-modal').fadeOut(300);
+    $('#modal-fader').fadeOut(300);
+  });
+
+
 }
 
 function toggleHeartIcon(t){

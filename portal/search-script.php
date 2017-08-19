@@ -11,6 +11,17 @@
     switch($action){
       case 'search' : search($conn);break;
       case 'favourites' : favourites($conn);break;
+      case 'users' : users($conn);break;
+      case 'delete' : delete($conn);break;
+    }
+
+    function users($conn){
+      $username = $_SESSION['username'];
+      $query =  "SELECT * FROM recces WHERE `Submitter` = '$username' ORDER BY id DESC";
+
+      $result = $conn->query($query);
+
+      returnData($result);
     }
 
     function search($conn){

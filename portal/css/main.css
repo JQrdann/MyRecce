@@ -1,6 +1,13 @@
 * {
     margin: 0;
     font-family: 'Montserrat', sans-serif;
+    -webkit-touch-callout: none; /* iOS Safari */
+     -webkit-user-select: none; /* Safari */
+      -khtml-user-select: none; /* Konqueror HTML */
+        -moz-user-select: none; /* Firefox */
+         -ms-user-select: none; /* Internet Explorer/Edge */
+             user-select: none; /* Non-prefixed version, currently
+                                   supported by Chrome and Opera */
 }
 
 a {
@@ -322,7 +329,7 @@ main {
     height: 275px;
     text-align: left;
     cursor: pointer;
-    transition: .3s;
+    transition: box-shadow .3s;
 }
 
 .recce-active{
@@ -741,6 +748,78 @@ main {
     font-weight: bold;
     font-size: 30px;
     padding-left: 50px;
+}
+
+#delete-recce{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 0;
+  background-color: #ff2e43;
+  line-height: 75px;
+  text-align: center;
+}
+#delete-recce h1{
+  color: white;
+  font-weight: 300;
+}
+
+#delete-modal{
+  position: fixed;
+  width: 500px;
+  height: 180px;
+  top: calc(50% - 90px);
+  left: calc(50% - 200px);
+  background-color: white;
+  padding: 20px;
+  box-sizing: border-box;
+  text-align: center;
+  z-index: 3;
+  border-radius: .5em;
+  display: none;
+}
+#delete-modal h1{
+  font-weight: 300;
+}
+
+#delete-yes{
+  margin-top: 20px;
+  width: 50%;
+  height: 50px;
+  background-color: #ff2e43;
+  color: white;
+  line-height: 50px;
+  float: left;
+  cursor: pointer;
+  transition: .3s;
+}
+#delete-yes:hover{
+  background-color: #db3445;
+}
+#delete-no{
+  margin-top: 20px;
+  width: 50%;
+  height: 50px;
+  background-color: white;
+  color: black;
+  line-height: 50px;
+  float: left;
+  cursor: pointer;
+  transition: .3s;
+}
+#delete-no:hover{
+  color: white;
+  background-color: #333333;
+}
+
+#modal-fader{
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,.6);
+  z-index: 2;
+  display: none;
 }
 
 .createreccegodiv {

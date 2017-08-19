@@ -17,7 +17,7 @@
 
             header('Location: ../portal/home.php');
         }else{
-            header('Location: /index.php');
+            header('Location: ../index2.php');
         }
     }
 ?>

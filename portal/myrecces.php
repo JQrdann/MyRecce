@@ -20,17 +20,33 @@
         </div>
 
         <div class="myrecs-sec2">
-            <div class="user-recces">
+            <div class="search-recces" style='width: 90%; text-align: left; padding-left: 25px; padding-top: 10px;'>
 
             </div>
+        </div>
+
+        <div id='delete-recce'>
+          <h1>Delete</h1>
+        </div>
+
+        <div id='modal-fader'>
+
+        </div>
+
+        <div id='delete-modal'>
+          <h1>Are you sure you want to delete this recce?</h1>
+          <div id='delete-yes'>
+            Yes
+          </div>
+          <div id='delete-no'>
+            No!
+          </div>
         </div>
     </main>
     <script>
       $(document).ready(function(){
-        $search = 'Username'; //change to current user instead of test account
-        $.get('search-script.php?f=Submitter',{"s":$search}, function($data){
-          $(".user-recces").html($data);
-        });
+        canDrag = true;
+        userRecces();
       });
     </script>
 </body>
