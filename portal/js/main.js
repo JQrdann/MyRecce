@@ -498,7 +498,7 @@ function initMap() {
 
         function renderQuickView(item) {
             $(".quickmapview-subbox").css('background-image', 'url(' + item[0].Photo1 + ')');
-            var content = item[0].Name + '<br><br>' + item[0].Description;
+            var content = item[0].Name + '<br><br>' + item[0].Description + '<a class="recce-view-button" href="view?id='+item[0].ID+'">View Recce</a>';
             $(".recce-quick-view").html(content);
         }
 
